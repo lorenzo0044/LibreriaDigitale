@@ -25,7 +25,12 @@ public class Libro <T>{
         return isbn;
     }
 
+    @Override
+    public String toString() {
+        return titolo + " ID: " + isbn;
     }
+
+}
 
 
 
