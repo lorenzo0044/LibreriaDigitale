@@ -32,6 +32,7 @@ public class Biblioteca {
             libreria.remove(libro);
         }else{
             prestiti.get(utente).push(libro);
+            libreria.remove(libro);
         }
 
 
@@ -41,9 +42,12 @@ public class Biblioteca {
     public void restituisciLibro(String utente){
 
         if (prestiti.containsKey(utente)){
-            libriDaRestituire.offer(prestiti.get(utente).pop());
+            Libro<?> libroRientrato = prestiti.get(utente).pop();
+            libriDaRestituire.offer(libroRientrato);
+            libreria.add(libriDaRestituire.poll());
         }
     }
 
 
-    }
+
+}
