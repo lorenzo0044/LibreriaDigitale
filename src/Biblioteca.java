@@ -16,7 +16,9 @@ public class Biblioteca {
         for (Libro<?> libro : libreria) {
             if (libro.getIsbn().equals(id)) {
                 libreria.remove(libro);
+                break;
             }
+
         }
     }
     public void registraUtente(String nome){
@@ -24,15 +26,18 @@ public class Biblioteca {
     }
 
     public void prestaLibro(String utente, Libro<?> libro){
-        if (prestiti.containsKey(utente)== false){
+        if (prestiti.containsKey(utente)== false) {
             prestiti.put(utente, new Stack<>());
             prestiti.get(utente).push(libro);
             libreria.remove(libro);
+        }else{
+            prestiti.get(utente).push(libro);
+        }
 
 
         }
 
-    }
+
     public void restituisciLibro(String utente){
 
         if (prestiti.containsKey(utente)){
