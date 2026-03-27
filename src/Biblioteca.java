@@ -44,7 +44,7 @@ public class Biblioteca {
         if (prestiti.containsKey(utente)){
             Libro<?> libroRientrato = prestiti.get(utente).pop();
             libriDaRestituire.offer(libroRientrato);
-            libreria.add(libriDaRestituire.poll());
+            libreria.add(libroRientrato);
         }
     }
 
